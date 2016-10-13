@@ -1,10 +1,7 @@
 package com.shangyi.netty.module;
 
 /**
- * ������Ϣ����
- *
- * @author ���
- * @version 2016/02/24 19:40
+ * tui song xiaoxi shitilei
  */
 public class PushMsg extends BaseMsg {
 

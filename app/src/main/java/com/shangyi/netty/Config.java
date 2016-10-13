@@ -13,6 +13,7 @@ package com.shangyi.netty;
  */
 
 public class Config {
-    public static final String SERVICE_IP="192.168.0.166";
+    public static final String SERVICE_IP="192.168.0.125";//表哥的机器
+    public static final String SERVICE_IP_MY="192.168.0.166";
     public static final int SERVICE_PORT=9999;
 }

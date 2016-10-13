@@ -7,13 +7,13 @@ package com.shangyi.netty.module;
  * @version 2016/02/24 19:40
  */
 public class Constants {
-    private static String clientId;
+    private static String phoneNum;
 
-    public static String getClientId() {
-        return clientId;
+    public static String setPhoneNum() {
+        return phoneNum;
     }
 
-    public static void setClientId(String clientId) {
-        Constants.clientId = clientId;
+    public static void setPhoneNum(String phoneNum) {
+        Constants.phoneNum = phoneNum;
     }
 }

@@ -2,6 +2,7 @@ package com.shangyi.netty;
 
 import com.shangyi.netty.module.Constants;
 import com.shangyi.netty.module.LoginMsg;
+import com.shangyi.netty.module.PushMsg;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -26,20 +27,21 @@ import java.net.InetSocketAddress;
  */
 public class NettyClientBootstrap {
     private int port = Config.SERVICE_PORT;
-    private String host =Config.SERVICE_IP ;
-    public SocketChannel socketChannel;
+    private String host =Config.SERVICE_IP_MY ;
+    public static SocketChannel socketChannel;
     private static final EventExecutorGroup group = new DefaultEventExecutorGroup(20);
 
     public void startNetty() throws InterruptedException {
         if (socketChannel!=null && socketChannel.isOpen()) {
             System.out.println("已经连接");
         }else {
-            Constants.setClientId("001");// TODO: 2016/2/23
+            Constants.setPhoneNum("12345");// TODO: 2016/2/23
             System.out.println("长链接开始");
             if (start()) {
                 LoginMsg loginMsg = new LoginMsg();// TODO: 2016/2/23
                 loginMsg.setPassword("yao");
                 loginMsg.setUserName("robin");
+                loginMsg.setPhoneNum("12345");
                 socketChannel.writeAndFlush(loginMsg);
                 System.out.println("长链接成功");
             }else {
@@ -61,7 +63,6 @@ public class NettyClientBootstrap {
                 socketChannel.pipeline().addLast(new IdleStateHandler(20, 10, 0));//10表示多久往服务器写入心跳消息 20表示20秒读取一次服务器消息
                 socketChannel.pipeline().addLast(new ObjectEncoder());
                 socketChannel.pipeline().addLast(new ObjectDecoder(1024,ClassResolvers.cacheDisabled(this.getClass().getClassLoader())));
-
                 socketChannel.pipeline().addLast(new NettyClientHandler());
             }
         });
@@ -95,5 +96,17 @@ public class NettyClientBootstrap {
             return socketChannel.isOpen();
         }
         return false;
+    }
+
+    /**
+     * 发送消息
+     * @param msg
+     */
+    public static void sendMsg(String msg){
+        PushMsg pushMsg=new PushMsg();
+        pushMsg.setPhoneNum("12345");
+        pushMsg.setTitle("12345");
+        pushMsg.setContent(msg);
+        socketChannel.writeAndFlush(pushMsg);
     }
 }

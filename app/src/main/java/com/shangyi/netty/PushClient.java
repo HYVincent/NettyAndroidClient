@@ -51,4 +51,12 @@ public class PushClient {
         NettyClientBootstrap bootstrap = PushClient.getBootstrap();
         return bootstrap.isOpen();
     }
+
+    /**
+     * 发送消息给服务器
+     * @param msg
+     */
+    public static void sendMsg(String msg){
+        bootstrap.sendMsg(msg);
+    }
 }

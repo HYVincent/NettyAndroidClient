@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Netty.iml" filepath="$PROJECT_DIR$/Netty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NettyAndroidClient.iml" filepath="$PROJECT_DIR$/NettyAndroidClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
