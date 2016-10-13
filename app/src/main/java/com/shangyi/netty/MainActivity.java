@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * @author 徐飞
@@ -59,6 +60,9 @@ public class MainActivity extends Activity {
         tvServiceMsg=(TextView)findViewById(R.id.tv_from_service_msg);
         Intent intent=getIntent();
         tvServiceMsg.setText(intent.getStringExtra("title")+":"+intent.getStringExtra("content"));
+        if(intent.getStringExtra("content").equals("成功登陆服务器")){
+            Toast.makeText(MainActivity.this,"登录成功",Toast.LENGTH_LONG).show();
+        }
 
     }
 
