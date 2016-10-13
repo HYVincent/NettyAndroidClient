@@ -38,5 +38,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <TextView
+        android:hint="显示来自Service的消息"
+        android:id="@+id/tv_from_service_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 
 </LinearLayout>
