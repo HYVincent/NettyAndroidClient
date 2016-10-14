@@ -16,10 +16,7 @@ public class MainApplication extends Application {
         super.onCreate();
         mainApplication = this;
         PushClient.create();
-
     }
-
-
     public static Context getAppContext() {
         return mainApplication;
     }

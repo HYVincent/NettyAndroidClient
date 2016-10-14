@@ -80,7 +80,8 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<BaseMsg> {
                 PushMsg pushMsg = (PushMsg) baseMsg;
                 Intent intent = new Intent(MainApplication.getAppContext(), MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("hi", pushMsg.getContent());
+                intent.putExtra("content", pushMsg.getContent());
+                intent.putExtra("title",pushMsg.getTitle());
                 MainApplication.getAppContext().startActivity(intent);
                 System.out.println(pushMsg.getTitle() + " , " +pushMsg.getContent());
                 break;
