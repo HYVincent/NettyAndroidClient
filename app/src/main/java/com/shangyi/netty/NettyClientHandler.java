@@ -83,7 +83,7 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<BaseMsg> {
                 intent.putExtra("content", pushMsg.getContent());
                 intent.putExtra("title",pushMsg.getTitle());
                 MainApplication.getAppContext().startActivity(intent);
-                System.out.println(pushMsg.getTitle() + " , " +pushMsg.getContent());
+                System.out.println("服务器回应："+pushMsg.getTitle() + " , " +pushMsg.getContent());
                 break;
             default:
                 System.out.println("default..");
