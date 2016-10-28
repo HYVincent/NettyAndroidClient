@@ -46,6 +46,7 @@ public class NettyClientBootstrap {
                 System.out.println("长链接成功");
             }else {
                 System.out.println("长链接失败...");
+                start();
             }
         }
     }
